@@ -20,7 +20,7 @@
 	Tóxica 		<input type="checkbox" name="toxidade" value="1"><br>
 	Comestível	<input type="checkbox" name="comestivel" value="1"><br>
 	Rara		<input type="checkbox" name="raridade" value="1"><br>
-	Medicinal	<input type="checkbox" name="medicinal" value="1">-->
+	Medicinal	<input type="checkbox" name="medicinal" value="1">
 	<br>
 	<p/>
 	<input type="submit" value="Registrar">

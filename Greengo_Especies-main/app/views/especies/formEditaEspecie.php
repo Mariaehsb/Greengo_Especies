@@ -20,11 +20,11 @@
 		<br>
 		Nome Cientifico: <input type="text" name="nomeCie" value="<?= $especie->getNomeCie(); ?>">
 		<br>
-		Frutifera: <input type="checkbox" name="frutifera" value="<?= $especie->getFrutifera(); ?>">
-		Tóxica 		<input type="checkbox" name="AT" value="<?= $especie->getToxidade(); ?>"><br>
-		Comestível	<input type="checkbox" name="AT" value="<?= $especie->getComestivel(); ?>"><br>
-		Rara		<input type="checkbox" name="AT" value="<?= $especie->getRaridade(); ?>"><br>
-		Medicinal	<input type="checkbox" name="AT" value="<?= $especie->getMedicinal(); ?>">-->
+		Frutifera <input type="checkbox" name="frutifera" value="<?= $especie->getFrutifera(); ?>"><br>
+		Tóxica 		<input type="checkbox" name="toxidade" value="<?= $especie->getToxidade(); ?>"><br>
+		Comestível	<input type="checkbox" name="comestivel" value="<?= $especie->getComestivel(); ?>"><br>
+		Rara		<input type="checkbox" name="raridade" value="<?= $especie->getRaridade(); ?>"><br>
+		Medicinal	<input type="checkbox" name="medicinal" value="<?= $especie->getMedicinal(); ?>"><br>
 			
 		<input type="submit" value="Atualizar">
 		<input type="reset" value="Limpar">

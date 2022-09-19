@@ -60,10 +60,8 @@ class ControllerEspecie{
 		$especie->setNomeCie($_POST["nomeCie"]);
         
         if(isset($_POST["frutifera"])){
-            print_r("-=>" . $_POST["frutifera"]);
             $especie->setFrutifera($_POST["frutifera"]);
         } else{ 
-            print_r("else-=>" . $_POST["frutifera"]);
             $especie->setFrutifera(0);
         }
 		
@@ -119,7 +117,7 @@ class ControllerEspecie{
     }
 
     private function findEspecieById(){
-        $idParam = $_GET['id'];
+        $idParam = $_GET['idEspecie'];
 
         $especieRepository = new EspecieRepository();
         $especie = $especieRepository->findEspecieById($idParam);
@@ -130,10 +128,10 @@ class ControllerEspecie{
     }
 
     private function deleteEspecieById(){
-        $idParam = $_GET['id'];
+        $idParam = $_GET["idEspecie"];
         $especieRepository = new EspecieRepository();    
 
-        $qt = $especieRepository->deleteById($idParam);
+        $qt = $especieRepository->deleteEspecieById($idParam);
         if($qt){
 			$msg = "Registro excluído com sucesso.";
 		}else{
@@ -157,14 +155,39 @@ class ControllerEspecie{
 		$especie->setIdEspecie($_GET["idEspecie"]);
 		$especie->setNomePop($_POST["nomePop"]);
 		$especie->setNomeCie($_POST["nomeCie"]);
-		$especie->setFrutifera($_POST["frutifera"]);
-        $especie->setToxidade($_POST["toxidade"]);
-        $especie->setComestivel($_POST["comestivel"]);
-        $especie->setRaridade($_POST["raridade"]);
-        $especie->setMedicinal($_POST["medicinal"]);
+		
+        if(isset($_POST["frutifera"])){
+            $especie->setFrutifera($_POST["frutifera"]);
+        } else{ 
+            $especie->setFrutifera(0);
+        }
+		
+        if(isset($_POST["toxidade"])){
+            $especie->setToxidade($_POST["toxidade"]);
+        } else{ 
+            $especie->setToxidade(0);
+        }
+
+        if(isset($_POST["comestivel"])){
+            $especie->setComestivel($_POST["comestivel"]);
+        } else{ 
+            $especie->setComestivel(0);
+        }
+    
+        if(isset($_POST["raridade"])){
+            $especie->setRaridade($_POST["raridade"]);
+        } else{ 
+            $especie->setRaridade(0);
+        }
+    
+        if(isset($_POST["medicinal"])){
+            $especie->setMedicinal($_POST["medicinal"]);
+        } else{ 
+            $especie->setMedicinal(0);
+        }
 
         $especieRepository = new EspecieRepository();
-        //print_r($cliente);
+        //print_r($especie);
         $atualizou = $especieRepository->update($especie);
         
         if($atualizou){

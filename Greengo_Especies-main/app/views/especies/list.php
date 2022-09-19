@@ -40,7 +40,7 @@ error_reporting(E_ALL);
                 <?= $especie['raridade'] ?> - 
                 <?= $especie['medicinal'] ?> - 
                 [ <a href="./EspecieController.php?action=edit&idEspecie=<?= $especie['idEspecie'] ?>">Editar</a> ] 
-                [ <a href="javascript:confirmarExclusaoEspecie('<?= $especie['nomePop'] ?>', <?= $especie['idEspecie'] ?>)">Excluir</a> ]
+                [ <a href="./EspecieController.php?action=deleteEspecieById&idEspecie=<?= $especie['idEspecie'] ?>">Excluir</a> ]
             </li>             
         <?php endforeach; ?>
     </ul>
