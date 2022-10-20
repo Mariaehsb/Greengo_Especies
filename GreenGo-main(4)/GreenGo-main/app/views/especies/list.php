@@ -31,7 +31,11 @@ error_reporting(E_ALL);
         <?php foreach($data['especies'] as $especie): ?>
 
             <li>
+                <img src="especies/peperomia.jpg">
+                <!--<img src="data:image/jpeg;base64,'.base64_encode( <?=$result['image']?> ).'"/>-->
+                <!--<img src="'.<?= $especie['imagem'] ?>.'">;-->
                 <?= $especie['idEspecie'] ?> - 
+                <!--<?= $especie['imagem'] ?>-->
                 <?= $especie['nomePop'] ?> - 
                 <?= $especie['nomeCie'] ?> - 
                 <?= $especie['frutifera'] ?> - 

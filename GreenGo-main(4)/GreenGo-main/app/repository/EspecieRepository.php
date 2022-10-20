@@ -84,7 +84,7 @@
         }
 
         public function verEspecie(int $idEspecie){
-            $query = "SELECT FROM especie WHERE idEspecie = :idEspecie";
+            $query = "SELECT * FROM especie WHERE idEspecie = :idEspecie";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":idEspecie", $idEspecie);
         }
