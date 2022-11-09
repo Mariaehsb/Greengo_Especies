@@ -25,7 +25,6 @@ error_reporting(E_ALL);
 	//$caminho = __DIR__ . "/../helpers/mensagem.php";
 	//print_r($caminho); 
 ?>
-    
     <h1>Plantas</h1>
     <ul>
         <?php foreach($data['especies'] as $especie): ?>

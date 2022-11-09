@@ -11,7 +11,9 @@ $ccliente = new ControllerEspecie();
 
 class ControllerEspecie{
 
+    public $especieRepository;
 	function __construct(){
+        $this->especieRepository = new EspecieRepository();
 		if(isset($_POST["action"])){
 			$action = $_POST["action"];
 		}else if(isset($_GET["action"])){
@@ -90,8 +92,7 @@ class ControllerEspecie{
             $especie->setMedicinal(0);
         }
 
-        $especieRepository = new EspecieRepository();
-        $id = $especieRepository->create($especie);
+        $id = $this->especieRepository->create($especie);
 
         if($id){
 			$msg = "Registro inserido com sucesso.";
@@ -107,9 +108,8 @@ class ControllerEspecie{
     }    
 
     private function findAll(string $msg = null){
-        $especieRepository = new EspecieRepository();
 
-        $especies = $especieRepository->findAll();
+        $especies = $this->especieRepository->findAll();
 
         $data['titulo'] = "listar especies";
         $data['especies'] = $especies;
@@ -121,8 +121,7 @@ class ControllerEspecie{
     private function findEspecieById(){
         $idParam = $_GET["idEspecie"];
 
-        $especieRepository = new EspecieRepository();
-        $especie = $especieRepository->findEspecieById($idParam);
+        $especie = $this->especieRepository->findEspecieById($idParam);
 
         print "<pre>";
         print_r($especie);
@@ -131,8 +130,7 @@ class ControllerEspecie{
 
     private function verEspecie(){
         $idParam = $_GET["idEspecie"];
-        $especieRepository = new EspecieRepository();  
-        $especie = $especieRepository->findEspecieById($idParam);
+        $especie = $this->especieRepository->findEspecieById($idParam);
         $data['especies'][0] = $especie;
 
         $this->loadView("especies/verEspecie.php", $data);
@@ -140,9 +138,7 @@ class ControllerEspecie{
 
     private function deleteEspecieById(){
         $idParam = $_GET["idEspecie"];
-        $especieRepository = new EspecieRepository();    
-
-        $qt = $especieRepository->deleteEspecieById($idParam);
+        $qt = $this->especieRepository->deleteEspecieById($idParam);
         if($qt){
 			$msg = "Registro excluído com sucesso.";
 		}else{
@@ -153,8 +149,7 @@ class ControllerEspecie{
 
     private function edit(){
         $idParam = $_GET['idEspecie'];
-        $especieRepository = new EspecieRepository(); 
-        $especie = $especieRepository->findEspecieById($idParam);
+        $especie = $this->especieRepository->findEspecieById($idParam);
         $data['especies'][0] = $especie;
 
         $this->loadView("especies/formEditaEspecie.php", $data);
@@ -198,9 +193,8 @@ class ControllerEspecie{
             $especie->setMedicinal(0);
         }
 
-        $especieRepository = new EspecieRepository();
         //print_r($especie);
-        $atualizou = $especieRepository->update($especie);
+        $atualizou = $this->especieRepository->update($especie);
         
         if($atualizou){
 			$msg = "Registro atualizado com sucesso.";

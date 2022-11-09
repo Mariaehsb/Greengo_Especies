@@ -10,12 +10,12 @@
         function __construct()
         {
             $this->conn = Connection::getConnection();
+            var_dump($this->conn);
         }
 
         public function create(EspecieModel $especie){
             try {
-                //print_r($cliente);
-                $query = "INSERT INTO Especie (nomePop, nomeCie, descricao, frutifera, toxidade, exotica, raridade, medicinal) VALUES (:nomePop, :nomeCie, :descricao, :frutifera, :toxidade, :descricao, :raridade, :medicinal)";
+                $query = "INSERT INTO especie (nomePop, nomeCie, descricao, frutifera, toxidade, exotica, raridade, medicinal) VALUES (:nomePop, :nomeCie, :descricao, :frutifera, :toxidade, :descricao, :raridade, :medicinal)";
                 $prepare = $this->conn->prepare($query);
                 $prepare->bindValue(":nomePop", $especie->getNomePop());
                 $prepare->bindValue(":nomeCie", $especie->getNomeCie());

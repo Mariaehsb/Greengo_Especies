@@ -9,7 +9,7 @@
 <body>
 <h2>Cadastro de especies</h2>
 <p/>
-<form action="../../controllers/EspecieController.php?action=create" method="POST">
+<form action="/app/controllers/EspecieController.php?action=create" method="POST">
 	Nome Popular: <input type="text" name="nomePop">
 	<br>
 	Nome Cientifico: <input type="text" name="nomeCie">
