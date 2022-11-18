@@ -3,6 +3,7 @@ class EspecieModel{
 	private $idEspecie;
 	private $imagem;
 	private $descricao;
+	private $pontoEsp;
 	private $nomePop;
 	private $nomeCie;
 	private $frutifera;
@@ -10,6 +11,7 @@ class EspecieModel{
 	private $exotica;
 	private $raridade;
 	private $medicinal;
+	private $comestivel;
 	
 	public function getIdEspecie(): int{
 		return $this->idEspecie;
@@ -35,6 +37,13 @@ class EspecieModel{
 		$this->descricao = $des;
 	}
 
+	public function getPontoEsp(): int{
+		return $this->pontoEsp;
+	}
+	
+	public function setPontoEsp(int $pe){
+		$this->pontoEsp = $pe;
+	}
 
 	public function getNomePop(): string{
 		return $this->nomePop;
@@ -90,5 +99,13 @@ class EspecieModel{
 	
 	public function setMedicinal(int $med){
 		$this->medicinal = $med;
+	}
+
+	public function getComestivel(): int{
+		return $this->comestivel;
+	}
+	
+	public function setComestivel(int $com){
+		$this->comestivel = $com;
 	}
 }
